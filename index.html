@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>陈Cheeen · 让会教的人，也能会卖</title>
+<meta name="description" content="陈Cheeen，在线教育·心理咨询师培训方向，4 年从引流品做到万元品，让高客单价课程好卖、能持续好卖。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3E%E9%99%88%3C/text%3E%3C/svg%3E">
+<!--
+  ============================================
+  陈Cheeen 个人品牌站 · v2（瑞士编辑风）
+  部署：GitHub Pages，纯静态，无依赖
+  微信号：已填 sxc1234567（如更换，搜索 sxc1234567 替换，共三处：展示文本 / 按钮 data 值 / JS 兜底值）
+  内容说明：全部事实来自用户口述；案例已匿名化（不出现公司名），
+  流水数据经用户确认可披露。
+  ============================================
+-->
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --body:#333333;
+    --muted:#8a8a8a;
+    --line:#111111;      /* 结构线用黑色，瑞士风 */
+    --hairline:#e6e6e6;  /* 弱分隔线 */
+    --maxw:1180px;
+    --pad:20px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+    font-size:15px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+
+  /* ---------- 顶部胶囊 ---------- */
+  .top{padding:22px 0 0;}
+  .top .wrap{display:flex;gap:8px;flex-wrap:wrap;}
+  .pill{
+    display:inline-block;background:#000;color:#fff;
+    font-size:13px;font-weight:600;letter-spacing:.3px;
+    padding:8px 16px;border-radius:999px;border:none;cursor:pointer;
+    font-family:inherit;transition:opacity .15s ease;
+  }
+  .pill:hover{opacity:.75;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:56px 0 88px;}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:36px;}
+  .hero h1{
+    font-size:clamp(2.4rem,10vw,3rem);
+    font-weight:700;line-height:1.18;letter-spacing:-.01em;
+  }
+  .hero .intro p{color:var(--body);margin-bottom:14px;max-width:26em;}
+  .hero .facts{color:var(--body);}
+  .hero .facts .cap{
+    font-size:12px;letter-spacing:.18em;color:var(--muted);
+    text-transform:uppercase;margin-bottom:10px;
+  }
+  .hero .facts ul{list-style:none;}
+  .hero .facts li{padding:2px 0;font-weight:500;}
+  .hero .facts li span{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px;}
+  .avatar{width:180px;height:180px;border-radius:50%;overflow:hidden;background:#f2f2f2;}
+  .avatar img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+
+  /* ---------- 分区通用 ---------- */
+  section{padding:64px 0;}
+  .sec-label{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:14px;
+  }
+  .sec-title{
+    font-size:clamp(1.6rem,6.5vw,2.4rem);font-weight:700;
+    line-height:1.25;letter-spacing:-.01em;margin-bottom:14px;
+  }
+  .lead{color:var(--body);max-width:36em;margin-bottom:40px;}
+
+  /* ---------- 案例 01 ---------- */
+  .case-no{
+    font-size:clamp(2.2rem,8vw,3.4rem);font-weight:700;
+    letter-spacing:-.01em;line-height:1.1;margin-bottom:10px;
+  }
+  .nums{display:grid;grid-template-columns:repeat(2,1fr);gap:32px 24px;margin:44px 0;}
+  .num{border-top:2px solid var(--line);padding-top:14px;}
+  .num .v{font-size:clamp(1.7rem,7vw,2.6rem);font-weight:700;letter-spacing:-.01em;line-height:1.15;}
+  .num .k{font-size:13px;color:var(--muted);margin-top:6px;}
+  .duty{color:var(--body);max-width:36em;}
+  .story{margin:56px 0 0;max-width:44em;}
+  .story .st{font-size:12px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;}
+  .story p{color:var(--body);}
+
+  /* ---------- 擅长 / 谁会需要我 ---------- */
+  .cols{display:grid;grid-template-columns:1fr;gap:36px;max-width:44em;}
+  .col-item{border-top:2px solid var(--line);padding-top:16px;}
+  .col-item .no{font-size:12px;color:var(--muted);letter-spacing:.15em;margin-bottom:8px;}
+  .col-item h3{font-size:1.15rem;font-weight:700;margin-bottom:8px;}
+  .col-item p{color:var(--body);}
+
+  /* ---------- 结尾 ---------- */
+  .end{padding:88px 0 64px;}
+  .end h2{
+    font-size:clamp(2.2rem,9vw,4rem);font-weight:700;
+    line-height:1.18;letter-spacing:-.01em;margin-bottom:18px;
+  }
+  .end .say{color:var(--body);max-width:30em;margin-bottom:36px;}
+  .wxline{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .wxid{font-size:15px;color:var(--body);}
+  .wxid b{color:var(--ink);font-weight:700;}
+  .wxid .wxnum{color:var(--ink);font-weight:600;letter-spacing:.4px;}
+  #toast{
+    position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(20px);
+    background:#111;color:#fff;font-size:13px;padding:10px 18px;border-radius:999px;
+    opacity:0;pointer-events:none;transition:.25s ease;
+  }
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  footer{border-top:1px solid var(--hairline);padding:26px 0 40px;}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px;}
+
+  /* ---------- 平板 ---------- */
+  @media(min-width:640px){
+    :root{--pad:32px;}
+    .hero{padding:72px 0 110px;}
+    .hero-grid{grid-template-columns:1.2fr 1fr;gap:48px;}
+    .hero h1{font-size:clamp(2.5rem,7.2vw,3.5rem);}
+    .avatar{grid-column:2;justify-self:start;}
+    .nums{grid-template-columns:repeat(4,1fr);}
+    .cols{grid-template-columns:1fr 1fr;max-width:none;}
+    section{padding:84px 0;}
+  }
+  /* ---------- 桌面 ---------- */
+  @media(min-width:980px){
+    .hero{padding:88px 0 140px;}
+    .hero-grid{grid-template-columns:1.6fr 1.1fr .85fr 190px;gap:48px;align-items:start;}
+    .avatar{grid-column:auto;width:190px;height:190px;}
+    .sec-title{margin-bottom:18px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 顶部：身份 + 联系入口 -->
+<div class="top">
+  <div class="wrap">
+    <a class="pill" href="#top">陈Cheeen</a>
+    <a class="pill" href="#contact">微信</a>
+  </div>
+</div>
+
+<!-- 第一屏：主张 + 简介 + 履历 + 头像 -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <h1>让会教的人，<br>也能会卖。</h1>
+    <div class="intro">
+      <p>我是陈Cheeen，从事在线教育、心理咨询师培训。过去 4 年，我负责高客单价课程的策划与包装上线，统筹前端营销推广与后端服务品质。</p>
+      <p>一句话：让课程好卖，并一直好卖下去。</p>
+    </div>
+    <div class="facts">
+      <div class="cap">走过的路</div>
+      <ul>
+        <li>引流品<span>起步</span></li>
+        <li>百元品<span>进阶</span></li>
+        <li>千元品<span>深入</span></li>
+        <li>万元品<span>现在</span></li>
+      </ul>
+    </div>
+    <div class="avatar"><img src="assets/portrait.jpg" alt="陈Cheeen 的照片"></div>
+  </div>
+</header>
+
+<!-- 案例 01 -->
+<section>
+  <div class="wrap">
+    <div class="case-no">案例 01.</div>
+    <h2 class="sec-title">一门长程系统培训课</h2>
+    <p class="lead">开卖 3 年、已开到第 7 期，是公司的长青品——少有的能开这么多期的课程产品。我负责每一期的迭代、用户需求挖掘、体验品质提升、营销亮点与物料迭代、推广动作统筹，以及 AI 铺设。</p>
+    <div class="nums">
+      <div class="num"><div class="v">3 年 · 7 期</div><div class="k">持续开卖的长青品</div></div>
+      <div class="num"><div class="v">1000+</div><div class="k">累计学员</div></div>
+      <div class="num"><div class="v">100+</div><div class="k">每期平均学员（其他课约 60）</div></div>
+      <div class="num"><div class="v">千万级</div><div class="k">项目累计流水</div></div>
+    </div>
+    <div class="story">
+      <div class="st">其中一个判断</div>
+      <p>有一期课卖得不好。我通过学员访谈、以及对内部顾问团队的采访定位根因——当时行业里正有一门更权威、受认可的课程在推广。我给团队预警，绕开正面竞争，把课程定位从「面向新手小白」调整为「想深入流派、获得 / 提高 / 稳定执业竞争力」的方向，课程最终顺利推出。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 擅长 -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">Strengths</div>
+    <h2 class="sec-title">我擅长什么</h2>
+    <div class="cols">
+      <div class="col-item">
+        <div class="no">01</div>
+        <h3>找准用户需求</h3>
+        <p>能找准用户的需求，据此策划针对性的营销活动，优化课程内容与亮点。</p>
+      </div>
+      <div class="col-item">
+        <div class="no">02</div>
+        <h3>写得出、说得出</h3>
+        <p>针对需求痛点高效产出文案，并能向设计提出有审美的产品效果图。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 谁会需要我 -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">For Whom</div>
+    <h2 class="sec-title">谁会需要我</h2>
+    <div class="cols">
+      <div class="col-item">
+        <div class="no">A</div>
+        <h3>想开课的老师 / 讲师</h3>
+        <p>有专业、有口碑，但不会包装、不会卖。需要有人把内容做成能持续出单的产品。</p>
+      </div>
+      <div class="col-item">
+        <div class="no">B</div>
+        <h3>想招人的团队 / 机构</h3>
+        <p>需要一位既懂用户需求、能写文案，还能统筹推广与服务品质的课程运营负责人。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 结尾 + 联系 -->
+<div class="end" id="contact">
+  <div class="wrap">
+    <h2>让会教的人，<br>也能会卖。</h2>
+    <p class="say">如果你有课程想卖得更好，或想聊聊合作，欢迎加我微信。</p>
+    <div class="wxline">
+      <span class="wxid">微信：<b>陈Cheeen</b> · <span class="wxnum">sxc1234567</span></span>
+      <button class="pill" id="copyWx" data-wx="sxc1234567">复制微信号</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 陈Cheeen</span>
+    <span>让会教的人，也能会卖</span>
+  </div>
+</footer>
+
+<div id="toast">已复制</div>
+
+<script>
+  // 复制微信号：填好微信号后，把下方 id WeChatID 替换成真实微信号即可
+  (function(){
+    var wechat = document.getElementById('copyWx').dataset.wx || 'sxc1234567';
+    var btn = document.getElementById('copyWx');
+    var toast = document.getElementById('toast');
+    btn.addEventListener('click', function(){
+      function done(){ toast.textContent='已复制：'+wechat; toast.classList.add('show');
+        setTimeout(function(){toast.classList.remove('show');},1600); }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(wechat).then(done).catch(done);
+      }else{
+        var t=document.createElement('textarea');t.value=wechat;document.body.appendChild(t);
+        t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);done();
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
